@@ -13,6 +13,7 @@ func handlerHome(c *fiber.Ctx) {
 }
 func setupRoutes(app *fiber.App)  {
 	app.Get("/", handlerHome)
+	app.Get("/data",apiRoutes.GetAllData)
 	app.Get("/data/:id", apiRoutes.GetOne)
 	
 }
@@ -20,8 +21,7 @@ func setupRoutes(app *fiber.App)  {
 func main() {
 	log.Println("Starting App..")
 	app := fiber.New()
-	app.Get("/", apiRoutes.GetAllData)
-
+	setupRoutes(app)
 	log.Fatal(app.Listen(":3000"))
 
 }
