@@ -1,7 +1,7 @@
 package apiRoutes
 
 import (
-	"github.com/gofiber/fiber"
+	"github.com/gofiber/fiber/v2"
 	"log"
 	"net/http"
 	"strconv"
@@ -15,6 +15,7 @@ type ResponseData struct {
 type ErrorResponse struct {
 	Error string `json:"error"`
 }
+
 var resp = []ResponseData{
 	ResponseData{
 		Id:   "1",
@@ -27,22 +28,23 @@ var resp = []ResponseData{
 		Age:  "23",
 	},
 }
-func GetAllData(c *fiber.Ctx) {
+
+func GetAllData(c *fiber.Ctx) error {
 
 	log.Println(resp)
-	_ = c.JSON(resp)
+	return c.JSON(resp)
+
 }
-func GetOne(c *fiber.Ctx) {
+func GetOne(c *fiber.Ctx) error {
 	id := c.Params("id")
 	atoi, err := strconv.Atoi(id)
-	if err !=nil  {
-		_ = c.Status(http.StatusBadRequest).JSON(ErrorResponse{Error: "invalid id passed"})
-		return
+	if err != nil {
+		return c.Status(http.StatusBadRequest).JSON(ErrorResponse{Error: "invalid id passed"})
+
 	}
 	if atoi >= len(resp) {
-		_ = c.Status(http.StatusBadRequest).JSON(ErrorResponse{Error: "Index out of bounds|| not found"})
-		return
-	}
-		_ = c.JSON(resp[atoi])
+		return c.Status(http.StatusBadRequest).JSON(ErrorResponse{Error: "Index out of bounds|| not found"})
 
+	}
+	return c.JSON(resp[atoi])
 }
