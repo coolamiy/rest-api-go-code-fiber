@@ -11,7 +11,7 @@ import (
 
 func handlerHome(c *fiber.Ctx) error {
 
-	c.SendString("pong")
+	_ = c.SendString("pong")
 	return nil
 
 }
