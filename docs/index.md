@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+## REST API using GO language and fiber framework
 
-You can use the [editor on GitHub](https://github.com/coolamiy/rest-api-go-code-fiber/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+This project is using  [GoLang](https://golang.org/) and [Fiber](https://docs.gofiber.io/) for creation of [RestAPI](https://en.wikipedia.org/wiki/Representational_state_transfer)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Rest Api's in go
+Rest api's in go can be build using the following frameworks:
+1. Gorilla
+2. Gin 
+3. Revel
+4. Martini
+5. web.go
+6. Goji
+7. Beego
+8. echo (quite similar to fibre)
+9. fibre
 
-### Markdown
+Every framework have its pro's and cons.
+we will be using fibre here as this is inspired from [Express](https://expressjs.com/) which is battle tested and use [fasthttp](https://pkg.go.dev/gopkg.in/labstack/echo.v2/engine/fasthttp) under the hood.
+### Landscape
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/coolamiy/rest-api-go-code-fiber/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+we will be breaking down the development of the rest api in different phases:
+1. Simple rest api with mocked data
+2. Adding cassandra as backed using gocql package
+3. Adding ES for search extensibility
+4. custom Loggers for logging.
+ 
